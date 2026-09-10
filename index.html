@@ -3,31 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f8f7f3" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
       content="WLA³ learns a shared world-transition action interface for semantics, dynamics, and robot control."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="WLA³" />
-    <meta
-      property="og:title"
-      content="WLA³ — World Latent Action Modeling"
-    />
+    <meta property="og:title" content="WLA³ — World Latent Action Modeling" />
     <meta
       property="og:description"
       content="World Latent Action Modeling for Semantics, Dynamics, and Kinematics."
     />
-    <meta
-      property="og:image"
-      content="https://wla-3.github.io/assets/overview.webp"
-    />
+    <meta property="og:image" content="https://wla-3.github.io/assets/overview.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://wla-3.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="style.css" />
-    <script>document.documentElement.classList.add("js");</script>
     <script src="script.js" defer></script>
     <title>WLA³ — World Latent Action Modeling</title>
   </head>
@@ -35,266 +28,191 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" data-header>
-      <div class="nav-shell">
-        <a class="wordmark" href="#top" aria-label="WLA³ home">
-          <span class="wordmark-cube" aria-hidden="true">W</span>
-          <span>WLA<sup>3</sup></span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          data-nav-toggle
-        >
-          <span class="visually-hidden">Toggle navigation</span>
-          <span></span><span></span>
-        </button>
-
-        <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
-          <a href="#overview">Overview</a>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="site-name" href="#top">WLA<sup>3</sup></a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#abstract">Abstract</a>
           <a href="#method">Method</a>
           <a href="#data">Data</a>
-          <a href="#results">Results</a>
+          <a href="#experiments">Experiments</a>
           <a href="#citation">Citation</a>
-          <a class="nav-paper" href="assets/WLA3.pdf">Paper <span aria-hidden="true">↗</span></a>
+          <a href="assets/WLA3.pdf">Paper</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="container hero-inner">
-          <p class="eyebrow" data-reveal>
-            <span class="eyebrow-dot"></span>
-            Research project · 2026
-          </p>
-
-          <h1 id="hero-title" data-reveal>
-            <span class="hero-acronym">WLA<sup>3</sup></span>
-            <span class="hero-title-line">World Latent Action Modeling</span>
-            <span class="hero-title-line hero-title-muted">for Semantics, Dynamics, and Kinematics</span>
+      <section class="project-header" id="top">
+        <div class="container project-header-inner">
+          <h1>
+            <span class="project-acronym">WLA<sup>3</sup></span>
+            <span>World Latent Action Modeling for Semantics, Dynamics, and Kinematics</span>
           </h1>
 
-          <p class="hero-lede" data-reveal>
-            Learning a shared world-transition action interface from human videos,
-            robot trajectories, simulation, and UMI demonstrations.
-          </p>
-
-          <div class="authors" data-reveal>
-            <div class="author-list" aria-label="Authors">
-              <span>Peidong Liu<sup>*,†</sup></span>
-              <span>Zhiyuan Xiang<sup>*</sup></span>
-              <span>Mingyang Li</span>
-              <span>Wenhao Li</span>
-              <span>Jiahao Sun</span>
-              <span>Jiale Zhang</span>
-              <span>Jiawei Li<sup>†</sup></span>
-            </div>
-            <p class="affiliation">Joy Future Academy, JD Group</p>
-            <p class="author-note"><sup>*</sup> Equal contribution. <sup>†</sup> Corresponding authors.</p>
+          <div class="authors" aria-label="Authors">
+            <span>Peidong Liu<sup>*,†</sup></span>
+            <span>Zhiyuan Xiang<sup>*</sup></span>
+            <span>Mingyang Li</span>
+            <span>Wenhao Li</span>
+            <span>Jiahao Sun</span>
+            <span>Jiale Zhang</span>
+            <span>Jiawei Li<sup>†</sup></span>
           </div>
+          <p class="affiliation">Joy Future Academy, JD Group</p>
+          <p class="author-note"><sup>*</sup> Equal contribution. <sup>†</sup> Corresponding authors.</p>
 
-          <div class="hero-actions" data-reveal>
-            <a class="button button-primary" href="assets/WLA3.pdf">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.75h7.2L18.25 7.8V20.25H7zM14 4v4h4M9.5 12h6M9.5 15h6" /></svg>
-              Paper
-            </a>
-            <span class="button button-muted" title="Replace this button with the arXiv URL after release">
-              arXiv · coming soon
-            </span>
-            <a class="button button-ghost" href="https://github.com/wla-3" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.75a9.5 9.5 0 0 0-3 18.52c.48.1.65-.2.65-.46v-1.67c-2.66.58-3.22-1.13-3.22-1.13-.43-1.1-1.06-1.4-1.06-1.4-.87-.6.07-.58.07-.58.96.07 1.47.99 1.47.99.85 1.47 2.24 1.04 2.79.8.09-.62.33-1.04.61-1.28-2.12-.24-4.35-1.06-4.35-4.7 0-1.04.37-1.89.99-2.56-.1-.24-.43-1.21.09-2.52 0 0 .8-.26 2.61.98A9.1 9.1 0 0 1 12 7.42a9 9 0 0 1 2.38.32c1.81-1.24 2.61-.98 2.61-.98.52 1.31.19 2.28.09 2.52.62.67.99 1.52.99 2.56 0 3.65-2.24 4.45-4.37 4.69.34.3.65.88.65 1.78v2.5c0 .26.17.56.66.46A9.5 9.5 0 0 0 12 2.75Z" /></svg>
-              GitHub
-            </a>
-          </div>
-
-          <div class="hero-visual" data-reveal>
-            <img
-              src="assets/overview.webp"
-              alt="WLA³ overview: heterogeneous data, latent action learning, policy components, and real-world generalization"
-              width="2200"
-              height="1450"
-              fetchpriority="high"
-            />
-          </div>
-
-          <div class="metric-ribbon" aria-label="Headline results" data-reveal>
-            <div class="metric">
-              <strong>84.1K</strong>
-              <span>training hours</span>
-            </div>
-            <div class="metric">
-              <strong>81.9%</strong>
-              <span>real-robot success</span>
-            </div>
-            <div class="metric">
-              <strong>32D</strong>
-              <span>compact latent action</span>
-            </div>
-            <div class="metric">
-              <strong>+15.7</strong>
-              <span>points over π<sub>0.5</sub></span>
-            </div>
+          <div class="resource-links" aria-label="Project resources">
+            <a class="resource-link resource-link-primary" href="assets/WLA3.pdf">Paper</a>
+            <span class="resource-link resource-link-disabled" title="The arXiv link will be added after release">arXiv · coming soon</span>
+            <a class="resource-link" href="https://github.com/wla-3" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
       </section>
 
-      <section class="section section-light" id="overview" aria-labelledby="overview-title">
-        <div class="container narrow">
-          <div class="section-heading" data-reveal>
-            <p class="section-index">01 · Overview</p>
-            <h2 id="overview-title">One transition interface,<br />three kinds of intelligence.</h2>
-          </div>
+      <section class="overview-section" id="abstract" aria-labelledby="abstract-title">
+        <div class="container">
+          <figure class="paper-figure overview-figure">
+            <img
+              src="assets/overview.webp"
+              alt="Overview of WLA³ from heterogeneous world-state transitions to latent action modeling and robot policy learning"
+              width="2200"
+              height="1450"
+              fetchpriority="high"
+            />
+            <figcaption>
+              <strong>Overview of WLA<sup>3</sup>.</strong> WLAM learns compact local latent actions and
+              segment-level transition features from heterogeneous world-state transitions. These
+              representations support latent action-conditioned dynamics learning, direct SLA
+              supervision of the VLM, and joint latent–robot action generation.
+            </figcaption>
+          </figure>
 
-          <div class="abstract" data-reveal>
-            <p class="abstract-lead">Abstract</p>
+          <article class="abstract-copy">
+            <h2 id="abstract-title">Abstract</h2>
             <p>
               Scaling Generalist Policy Models with heterogeneous data is limited by the lack of
               unified, low-noise action supervision. Human egocentric videos are abundant, but only
               a small fraction comes with high-quality hand-action labels. Observed world transitions
               offer a common source of action-related supervision across data sources. We introduce
               <strong>WLA<sup>3</sup></strong> (World Latent Action Modeling for Semantics, Dynamics,
-              and Kinematics), a unified Generalist Policy Model framework built around
-              representations learned by a World Latent Action Model (WLAM).
+              and Kinematics), a unified Generalist Policy Model framework built around representations
+              learned by a World Latent Action Model (WLAM). WLAM encodes synchronized camera views
+              and available embodiment-state changes into a compact local latent action and a richer
+              transition feature. WLA<sup>3</sup> reuses these representations across semantics,
+              dynamics, and kinematics through latent action-conditioned world modeling, Semantic
+              Latent Aggregate supervision, and joint latent–robot action generation. The final 32D
+              latent action reaches 67.89% average classification accuracy on LARYBench, while
+              WLA<sup>3</sup> achieves 81.9% average success across six real-robot tasks versus 66.2%
+              for π<sub>0.5</sub>.
             </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section chapter" id="method" aria-labelledby="method-title">
+        <div class="container">
+          <header class="chapter-heading">
+            <p class="chapter-label">Method</p>
+            <h2 id="method-title">World Latent Action Modeling</h2>
             <p>
-              WLAM encodes synchronized camera views and available embodiment-state changes into a
-              compact local latent action and a richer transition feature. WLA<sup>3</sup> reuses
-              these representations across semantics, dynamics, and kinematics: local latent actions
-              support action-sensitive physical-dynamics modeling, segment-level features directly
-              supervise the VLM through a Semantic Latent Aggregate (SLA), and an action expert
-              jointly predicts latent actions together with embodiment-specific robot controls.
+              WLA<sup>3</sup> learns a shared transition representation from human videos, robot
+              trajectories, simulation rollouts, and UMI demonstrations, then reuses it across
+              physical dynamics, semantic supervision, and executable robot control.
             </p>
-          </div>
+          </header>
 
-          <div class="concept-grid">
-            <article class="concept-card" data-reveal>
-              <span class="concept-number">01</span>
-              <h3>Semantics</h3>
-              <p>SLA condenses a policy segment into direct transition supervision for instruction-conditioned VLM representations.</p>
-            </article>
-            <article class="concept-card" data-reveal>
-              <span class="concept-number">02</span>
-              <h3>Dynamics</h3>
-              <p>LAC-WM conditions world prediction on compact latent actions to learn action-sensitive physical change.</p>
-            </article>
-            <article class="concept-card" data-reveal>
-              <span class="concept-number">03</span>
-              <h3>Kinematics</h3>
-              <p>LARA jointly predicts shared latent actions and embodiment-specific controls for executable robot behavior.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-ink" id="method" aria-labelledby="method-title">
-        <div class="container">
-          <div class="section-heading section-heading-light" data-reveal>
-            <p class="section-index">02 · Method</p>
-            <h2 id="method-title">Learn the change.<br />Reuse the representation.</h2>
-            <p class="section-intro">
-              WLA<sup>3</sup> treats observed world-state transitions as the common action language
-              shared by video, simulation, UMI, and robot trajectories.
-            </p>
-          </div>
-
-          <figure class="figure-card figure-card-dark" data-reveal>
-            <img
-              src="assets/wlam.webp"
-              alt="World Latent Action Model architecture"
-              width="2200"
-              height="1142"
-              loading="lazy"
-            />
-            <figcaption>
-              <strong>World Latent Action Modeling.</strong> WLAM jointly encodes multimodal state
-              transitions, reconstructs endpoints from partial modalities, and aligns overlapping
-              temporal windows.
-            </figcaption>
-          </figure>
-
-          <div class="method-steps">
-            <article data-reveal>
-              <span>01</span>
-              <div>
-                <h3>World-transition encoding</h3>
-                <p>Synchronized camera views and available embodiment states form a rich 1024D transition feature and a compact 32D latent action.</p>
-              </div>
-            </article>
-            <article data-reveal>
-              <span>02</span>
-              <div>
-                <h3>Robust representation learning</h3>
-                <p>Cross-modal dropout reduces reliance on any single input, while overlap consistency regularizes nearby temporal windows.</p>
-              </div>
-            </article>
-            <article data-reveal>
-              <span>03</span>
-              <div>
-                <h3>Multi-stage policy supervision</h3>
-                <p>The same learned transition space supports physical dynamics, segment-level semantic grounding, and executable control.</p>
-              </div>
-            </article>
-          </div>
-
-          <figure class="figure-card figure-card-dark pipeline-figure" data-reveal>
-            <img
-              src="assets/training-pipeline.webp"
-              alt="LAC-WM pre-training and Generalist Policy Model training pipeline"
-              width="2200"
-              height="1340"
-              loading="lazy"
-            />
-            <figcaption>
-              <strong>Unified training pipeline.</strong> Local latent actions supervise dynamics and
-              action generation; segment-level transition features provide SLA supervision to the VLM.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section section-warm" id="data" aria-labelledby="data-title">
-        <div class="container">
-          <div class="section-heading split-heading" data-reveal>
-            <div>
-              <p class="section-index">03 · Data</p>
-              <h2 id="data-title">Heterogeneous by design.</h2>
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>World Latent Action Model</h3>
+              <p>
+                WLAM jointly encodes synchronized camera transitions and, when available,
+                embodiment-state transitions. A variational bottleneck produces a compact 32D
+                latent action, while the pre-bottleneck feature retains richer segment-level
+                transition information. Cross-modal dropout and overlap consistency encourage the
+                representation to remain robust across modalities and nearby temporal windows.
+              </p>
             </div>
-            <p class="section-intro">
-              Human videos provide diversity and scale. Robot trajectories ground the shared
-              transition space in executable native controls. Simulation and UMI broaden the range
-              of scenes, tasks, and embodiments.
+            <figure class="paper-figure">
+              <img
+                src="assets/wlam.webp"
+                alt="World Latent Action Model architecture"
+                width="2200"
+                height="1142"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>World Latent Action Modeling.</strong> WLAM encodes multimodal world-state
+                transitions, reconstructs endpoint observations, and regularizes overlapping
+                transition windows.
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>Generalist Policy Learning</h3>
+              <p>
+                The learned transition space supports three stages of policy learning. Local latent
+                actions condition the world model on physical change; pooled transition features
+                provide direct SLA supervision to the VLM; and the LARA expert jointly predicts
+                latent-action and embodiment-specific robot-action chunks.
+              </p>
+            </div>
+            <figure class="paper-figure">
+              <img
+                src="assets/training-pipeline.webp"
+                alt="LAC-WM pre-training and Generalist Policy Model training pipeline"
+                width="2200"
+                height="1340"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>LAC-WM pre-training and Generalist Policy Model mid-training.</strong>
+                Frozen WLAM representations supervise dynamics, semantics, and joint latent–robot
+                action generation at complementary temporal scales.
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="section chapter" id="data" aria-labelledby="data-title">
+        <div class="container">
+          <header class="chapter-heading">
+            <p class="chapter-label">Data</p>
+            <h2 id="data-title">Heterogeneous Training Corpus</h2>
+            <p>
+              The 84.1K-hour corpus combines four complementary data families. Human videos provide
+              scale and behavioral diversity, while robot, simulation, and UMI trajectories add
+              structured state transitions and executable supervision across embodiments.
             </p>
+          </header>
+
+          <div class="data-stats" aria-label="Training data by category">
+            <div class="data-stat">
+              <span class="data-dot data-dot-human" aria-hidden="true"></span>
+              <strong>53,874<small>h</small></strong>
+              <span>Human video</span>
+            </div>
+            <div class="data-stat">
+              <span class="data-dot data-dot-robot" aria-hidden="true"></span>
+              <strong>14,151<small>h</small></strong>
+              <span>Real robot</span>
+            </div>
+            <div class="data-stat">
+              <span class="data-dot data-dot-sim" aria-hidden="true"></span>
+              <strong>11,676<small>h</small></strong>
+              <span>Simulation</span>
+            </div>
+            <div class="data-stat">
+              <span class="data-dot data-dot-umi" aria-hidden="true"></span>
+              <strong>4,393<small>h</small></strong>
+              <span>UMI</span>
+            </div>
           </div>
 
-          <div class="data-stats" data-reveal>
-            <article>
-              <span class="data-swatch human"></span>
-              <strong>53,874 h</strong>
-              <p>Human video</p>
-            </article>
-            <article>
-              <span class="data-swatch robot"></span>
-              <strong>14,151 h</strong>
-              <p>Real robot</p>
-            </article>
-            <article>
-              <span class="data-swatch sim"></span>
-              <strong>11,676 h</strong>
-              <p>Simulation</p>
-            </article>
-            <article>
-              <span class="data-swatch umi"></span>
-              <strong>4,393 h</strong>
-              <p>UMI</p>
-            </article>
-          </div>
-
-          <figure class="figure-card dataset-figure" data-reveal>
+          <figure class="paper-figure dataset-figure">
             <img
               src="assets/dataset-overview.webp"
               alt="Composition, examples, statistics, and robot embodiments in the 84.1K-hour training corpus"
@@ -303,142 +221,141 @@
               loading="lazy"
             />
             <figcaption>
-              <strong>84.1K-hour training corpus.</strong> Four complementary data families span
-              diverse objects, actions, subtasks, scenes, and robot embodiments.
+              <strong>Overview of the 84.1K-hour training corpus.</strong> The corpus spans human
+              egocentric video, real-robot trajectories, simulation rollouts, and UMI demonstrations,
+              with diverse objects, actions, subtasks, scenes, and robot embodiments.
             </figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="section section-light" id="results" aria-labelledby="results-title">
+      <section class="section chapter" id="experiments" aria-labelledby="experiments-title">
         <div class="container">
-          <div class="section-heading split-heading" data-reveal>
-            <div>
-              <p class="section-index">04 · Results</p>
-              <h2 id="results-title">Scaling transitions into control.</h2>
-            </div>
-            <p class="section-intro">
-              WLA<sup>3</sup> improves real-world manipulation, compact representation quality,
-              data scaling, and human-to-robot transfer under controlled evaluations.
+          <header class="chapter-heading">
+            <p class="chapter-label">Experiments</p>
+            <h2 id="experiments-title">Evaluation and Analysis</h2>
+            <p>
+              We evaluate WLA<sup>3</sup> through real-world manipulation, heterogeneous-data
+              scaling, and representation transfer under controlled settings.
             </p>
-          </div>
+          </header>
 
-          <div class="result-metrics" data-reveal>
-            <article>
-              <span>Real-world average</span>
-              <strong>81.9%</strong>
-              <p>vs. 66.2% for π<sub>0.5</sub></p>
-            </article>
-            <article>
-              <span>LARYBench · final latent</span>
-              <strong>67.89%</strong>
-              <p>average classification accuracy</p>
-            </article>
-            <article>
-              <span>Human augmentation</span>
-              <strong>40 → 60%</strong>
-              <p>Eraser success with limited robot data</p>
-            </article>
-          </div>
-
-          <div class="result-tabs" data-tabs data-reveal>
-            <div class="tab-list" role="tablist" aria-label="Experiment results">
-              <button id="tab-real" role="tab" aria-selected="true" aria-controls="panel-real" tabindex="0">Real-world</button>
-              <button id="tab-scale" role="tab" aria-selected="false" aria-controls="panel-scale" tabindex="-1">Data scaling</button>
-              <button id="tab-transfer" role="tab" aria-selected="false" aria-controls="panel-transfer" tabindex="-1">Transition transfer</button>
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>Real-World Evaluation Protocol</h3>
+              <p>
+                Six tabletop tasks on the AgiBot G1 test fine-grained grasping and placement. Each
+                task is evaluated under spatial perturbations, substantially altered illumination,
+                and unseen tabletop backgrounds while retaining the same instruction and success
+                criterion.
+              </p>
             </div>
+            <figure class="paper-figure">
+              <img
+                src="assets/evaluation-scenes.webp"
+                alt="Standard, spatial, illumination, and background evaluation settings"
+                width="2400"
+                height="375"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>Representative real-world evaluation scenes.</strong> From left to right:
+                standard, spatial generalization, illumination generalization, and background
+                generalization settings.
+              </figcaption>
+            </figure>
+          </article>
 
-            <section id="panel-real" class="tab-panel" role="tabpanel" aria-labelledby="tab-real">
-              <div class="panel-copy">
-                <p class="panel-kicker">Six tasks · three unseen settings</p>
-                <h3>Robust real-world manipulation</h3>
-                <p>
-                  The full model reaches 81.9% average success across six AgiBot G1 tasks,
-                  outperforming π<sub>0.5</sub> by 15.7 percentage points. The benchmark varies
-                  spatial arrangements, illumination, and tabletop backgrounds.
-                </p>
-              </div>
-              <figure class="result-figure result-figure-wide">
-                <img src="assets/evaluation-scenes.webp" alt="Four real-world evaluation settings" width="2400" height="375" loading="lazy" />
-                <img src="assets/real-world-results.webp" alt="Task-level real-world success rates and component ablations" width="2400" height="1177" loading="lazy" />
-              </figure>
-            </section>
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>Real-World Policy Performance</h3>
+              <p>
+                The full WLA<sup>3</sup> model reaches 81.9% average success across the six tasks,
+                exceeding π<sub>0.5</sub> by 15.7 percentage points. The cumulative ablation shows
+                consistent gains as LAC-WM, LARA, and SLA are introduced.
+              </p>
+            </div>
+            <figure class="paper-figure">
+              <img
+                src="assets/real-world-results.webp"
+                alt="Task-level real-world policy success rates and cumulative component ablations"
+                width="2400"
+                height="1177"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>Task-level real-world policy performance and cumulative component ablations.</strong>
+                Results are averaged over spatial, illumination, and background generalization settings.
+              </figcaption>
+            </figure>
+          </article>
 
-            <section id="panel-scale" class="tab-panel" role="tabpanel" aria-labelledby="tab-scale" hidden>
-              <div class="panel-copy">
-                <p class="panel-kicker">5K → 10K → 20K hours</p>
-                <h3>Performance rises with mid-training data</h3>
-                <p>
-                  With architecture, initialization, post-training data, and evaluation held fixed,
-                  average success climbs from 57.6% to 65.9% and 81.9% as the heterogeneous
-                  mid-training mixture grows.
-                </p>
-              </div>
-              <figure class="result-figure result-figure-compact">
-                <img src="assets/scaling-results.webp" alt="WLA³ policy success rate scaling from 5K to 20K hours" width="1500" height="1095" loading="lazy" />
-              </figure>
-            </section>
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>Scaling with Data</h3>
+              <p>
+                With architecture, initialization, post-training data, and evaluation held fixed,
+                average success increases from 57.6% to 65.9% and 81.9% as Generalist Policy Model
+                mid-training data grows from 5K to 10K and 20K hours.
+              </p>
+            </div>
+            <figure class="paper-figure compact-figure">
+              <img
+                src="assets/scaling-results.webp"
+                alt="Policy success rate as mid-training data scales from 5K to 20K hours"
+                width="1500"
+                height="1095"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>Scaling Generalist Policy Model mid-training data for WLA<sup>3</sup>.</strong>
+                Post-training and evaluation settings are held fixed across data scales.
+              </figcaption>
+            </figure>
+          </article>
 
-            <section id="panel-transfer" class="tab-panel" role="tabpanel" aria-labelledby="tab-transfer" hidden>
-              <div class="panel-copy">
-                <p class="panel-kicker">Cross-context generation</p>
-                <h3>Transfer the change, preserve the scene</h3>
-                <p>
-                  Latent actions extracted from a source trajectory are applied in a new context.
-                  WLAM follows the source transition while better retaining the objects, appearance,
-                  and geometry of the target scene.
-                </p>
-              </div>
-              <figure class="result-figure">
-                <img src="assets/cross-context-transfer.webp" alt="Four cross-context transition transfer comparisons" width="2100" height="1893" loading="lazy" />
-              </figure>
-            </section>
-          </div>
-
-          <div class="finding-grid">
-            <article data-reveal>
-              <span class="finding-label">Compression</span>
-              <h3>1024D → 32D</h3>
-              <p>The compact latent retains 67.89% classification accuracy, close to the richer representation's 70.75%.</p>
-            </article>
-            <article data-reveal>
-              <span class="finding-label">Ablation</span>
-              <h3>72.1 → 81.9%</h3>
-              <p>Cumulative additions of LAC-WM, LARA, and SLA steadily improve real-world success.</p>
-            </article>
-            <article data-reveal>
-              <span class="finding-label">Transfer</span>
-              <h3>20.98%</h3>
-              <p>WLAM achieves the strongest mean cross-embodiment classification accuracy among evaluated methods.</p>
-            </article>
-          </div>
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>Cross-Context Transition Transfer</h3>
+              <p>
+                Latent actions extracted from a source trajectory are applied to a new visual
+                context. Across simulation and real-world examples, WLAM follows the source change
+                while better preserving the objects, appearance, and geometry of the target scene.
+              </p>
+            </div>
+            <figure class="paper-figure transfer-figure">
+              <img
+                src="assets/cross-context-transfer.webp"
+                alt="Four cross-context transition-transfer comparisons for WLAM, DreamDojo, and LAPA"
+                width="2100"
+                height="1893"
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>Cross-context transition transfer.</strong> Four source–context pairs compare
+                WLAM, DreamDojo, and LAPA in multi-step autoregressive rollouts.
+              </figcaption>
+            </figure>
+          </article>
         </div>
       </section>
 
       <section class="section citation-section" id="citation" aria-labelledby="citation-title">
-        <div class="container citation-layout">
-          <div class="section-heading section-heading-light" data-reveal>
-            <p class="section-index">05 · Citation</p>
-            <h2 id="citation-title">Build on WLA<sup>3</sup>.</h2>
-            <p class="section-intro">
-              Please use the citation below for the current preprint. The arXiv metadata can be
-              added here after the public release.
-            </p>
+        <div class="container citation-inner">
+          <div class="citation-heading">
+            <h2 id="citation-title">Citation</h2>
+            <p>Please use the following BibTeX entry for the current preprint.</p>
           </div>
-
-          <div class="citation-card" data-reveal>
-            <button class="copy-button" type="button" data-copy-citation>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8.25h9.75V20H9zM5.25 4h9.75v4.25M5.25 4v11.75H9" /></svg>
-              <span>Copy BibTeX</span>
-            </button>
+          <div class="citation-box">
+            <button class="copy-button" type="button" data-copy-citation>Copy BibTeX</button>
             <pre id="bibtex"><code>@misc{liu2026wla3,
-  title         = {WLA$^3$: World Latent Action Modeling for Semantics,
-                   Dynamics, and Kinematics},
-  author        = {Liu, Peidong and Xiang, Zhiyuan and Li, Mingyang and
-                   Li, Wenhao and Sun, Jiahao and Zhang, Jiale and Li, Jiawei},
-  year          = {2026},
-  note          = {Preprint},
-  url           = {https://wla-3.github.io/}
+  title  = {WLA$^3$: World Latent Action Modeling for Semantics,
+            Dynamics, and Kinematics},
+  author = {Liu, Peidong and Xiang, Zhiyuan and Li, Mingyang and
+            Li, Wenhao and Sun, Jiahao and Zhang, Jiale and Li, Jiawei},
+  year   = {2026},
+  note   = {Preprint},
+  url    = {https://wla-3.github.io/}
 }</code></pre>
           </div>
         </div>
@@ -447,11 +364,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <a class="wordmark footer-wordmark" href="#top" aria-label="Back to top">
-          <span class="wordmark-cube" aria-hidden="true">W</span>
-          <span>WLA<sup>3</sup></span>
-        </a>
-        <p>World Latent Action Modeling for Semantics, Dynamics, and Kinematics.</p>
+        <p>WLA<sup>3</sup>: World Latent Action Modeling for Semantics, Dynamics, and Kinematics.</p>
         <p>© <span data-year>2026</span> WLA<sup>3</sup> Team.</p>
       </div>
     </footer>

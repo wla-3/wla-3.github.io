@@ -46,5 +46,5 @@ Then open <http://localhost:8000/>.
 
 - `index.html`: page content and metadata
 - `style.css`: responsive visual design
-- `script.js`: mobile navigation, reveal effects, result tabs, and BibTeX copying
+- `script.js`: BibTeX copying and footer-year update
 - `assets/`: paper PDF and web-optimized figures
