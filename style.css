@@ -380,6 +380,70 @@ a.resource-link-primary:focus-visible {
   margin-left: auto;
 }
 
+.paper-table {
+  width: 100%;
+  margin: 36px 0 0;
+  overflow-x: auto;
+  color: var(--text);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.paper-table:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 5px;
+}
+
+.paper-table table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+  border-top: 1.5px solid #222;
+  border-bottom: 1.5px solid #222;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.paper-table-transfer table {
+  min-width: 690px;
+}
+
+.paper-table th,
+.paper-table td {
+  padding: 8px 7px;
+  white-space: nowrap;
+}
+
+.paper-table thead {
+  border-bottom: 1px solid #555;
+}
+
+.paper-table thead tr:first-child th[colspan] {
+  border-bottom: 1px solid #999;
+}
+
+.paper-table thead th {
+  color: #111;
+  font-weight: 650;
+}
+
+.paper-table tbody th {
+  color: #111;
+  font-weight: 450;
+  text-align: left;
+}
+
+.paper-table tbody tr + tr {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.paper-table .second-best {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .citation-heading {
   margin-bottom: 20px;
 }
@@ -426,24 +490,6 @@ a.resource-link-primary:focus-visible {
 .copy-button.is-copied {
   color: #24643a;
   border-color: #8eb79a;
-}
-
-.site-footer {
-  padding: 26px 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted-soft);
-  font-size: 0.76rem;
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.footer-inner p {
-  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -563,13 +609,8 @@ a.resource-link-primary:focus-visible {
     font-size: 0.72rem;
   }
 
-  .footer-inner {
-    display: block;
-    text-align: center;
-  }
-
-  .footer-inner p + p {
-    margin-top: 4px;
+  .paper-table {
+    margin-top: 28px;
   }
 }
 

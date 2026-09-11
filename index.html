@@ -20,7 +20,7 @@
     <link rel="canonical" href="https://wla-3.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="style.css?v=20260911-reference-layout" />
+    <link rel="stylesheet" href="style.css?v=20260911-experiment-tables" />
     <script src="script.js?v=20260911-reference-layout" defer></script>
     <title>WLA³ — World Latent Action Modeling</title>
   </head>
@@ -236,6 +236,82 @@
 
           <article class="paper-subsection">
             <div class="subsection-copy">
+              <h3>Latent-Action Representation on LARYBench</h3>
+              <p>
+                Under the standard representation-level protocol, WLAM ranks first on both
+                semantic-classification tasks and all four control-regression datasets. It reaches
+                70.75% average classification accuracy and 0.37 average regression MSE, improving
+                over the strongest competing results on both metrics. Results marked † are quoted
+                from LARYBench; all others are evaluated by us.
+              </p>
+            </div>
+            <div class="paper-table" role="region" aria-label="Table 2: Standard representation evaluation on LARYBench" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2">Method</th>
+                    <th scope="colgroup" colspan="3">Semantic classification (%) ↑</th>
+                    <th scope="colgroup" colspan="5">Control regression (MSE) ↓</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Composite<br />Human</th>
+                    <th scope="col">Composite<br />Robot</th>
+                    <th scope="col">Avg.</th>
+                    <th scope="col">CALVIN</th>
+                    <th scope="col">VLABench</th>
+                    <th scope="col">RoboCOIN</th>
+                    <th scope="col">AgiBotBeta</th>
+                    <th scope="col">Avg.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">LAPA<sup>†</sup></th>
+                    <td>14.61</td><td>23.64</td><td>19.13</td>
+                    <td>0.96</td><td>0.95</td><td>0.96</td><td>1.00</td><td>0.97</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">UniVLA<sup>†</sup></th>
+                    <td>19.08</td><td>18.56</td><td>18.82</td>
+                    <td>0.82</td><td>0.74</td><td>0.94</td><td>0.97</td><td>0.87</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">villa-X<sup>†</sup></th>
+                    <td>17.80</td><td>29.90</td><td>23.85</td>
+                    <td>0.86</td><td>0.72</td><td>0.94</td><td>0.97</td><td>0.87</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DiLA</th>
+                    <td><span class="second-best">64.41</span></td><td>62.10</td><td><span class="second-best">63.26</span></td>
+                    <td>0.55</td><td>0.27</td><td>0.86</td><td>0.82</td><td>0.63</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MVP-LAM</th>
+                    <td>50.31</td><td>51.61</td><td>50.96</td>
+                    <td>0.55</td><td>0.38</td><td>0.90</td><td>0.92</td><td>0.69</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">OpenCLAP</th>
+                    <td>55.32</td><td><span class="second-best">63.02</span></td><td>59.17</td>
+                    <td>0.43</td><td>0.17</td><td><span class="second-best">0.68</span></td><td><span class="second-best">0.60</span></td><td><span class="second-best">0.47</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DreamDojo</th>
+                    <td>63.69</td><td>59.41</td><td>61.55</td>
+                    <td><span class="second-best">0.35</span></td><td><span class="second-best">0.12</span></td><td>0.74</td><td>0.81</td><td>0.51</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ours</th>
+                    <td><strong>73.12</strong></td><td><strong>68.37</strong></td><td><strong>70.75</strong></td>
+                    <td><strong>0.25</strong></td><td><strong>0.09</strong></td><td><strong>0.55</strong></td><td><strong>0.57</strong></td><td><strong>0.37</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="paper-subsection">
+            <div class="subsection-copy">
               <h3>Real-World Policy Performance</h3>
               <p>
                 The full WLA<sup>3</sup> model reaches 81.9% average success across the six tasks,
@@ -272,6 +348,75 @@
                 loading="lazy"
               />
             </figure>
+          </article>
+
+          <article class="paper-subsection">
+            <div class="subsection-copy">
+              <h3>Cross-Embodiment Representation Transfer</h3>
+              <p>
+                On twelve action classes shared by human and robot videos, WLAM achieves the best
+                accuracy in all four transfer directions. Its 20.98% cross-embodiment average is
+                5.27 percentage points above DiLA, showing that its action representation remains
+                more readable as the embodiment changes. H and R denote human and robot videos;
+                all methods use the same linear reader and fixed 4×32-token interface.
+              </p>
+            </div>
+            <div class="paper-table paper-table-transfer" role="region" aria-label="Table 6: Cross-embodiment representation transfer" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2">Method</th>
+                    <th scope="colgroup" colspan="3">Within-domain</th>
+                    <th scope="colgroup" colspan="3">Cross-embodiment</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">H→H</th>
+                    <th scope="col">R→R</th>
+                    <th scope="col">Avg.</th>
+                    <th scope="col">H→R</th>
+                    <th scope="col">R→H</th>
+                    <th scope="col">Avg.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">DiLA</th>
+                    <td><span class="second-best">40.75</span></td><td>39.00</td><td><span class="second-best">39.88</span></td>
+                    <td><span class="second-best">16.17</span></td><td><span class="second-best">15.25</span></td><td><span class="second-best">15.71</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MVP-LAM</th>
+                    <td>27.67</td><td>25.96</td><td>26.82</td>
+                    <td>12.54</td><td>13.75</td><td>13.15</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">OpenCLAP</th>
+                    <td>28.88</td><td><span class="second-best">40.38</span></td><td>34.63</td>
+                    <td>10.50</td><td>10.88</td><td>10.69</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">LAPA</th>
+                    <td>22.21</td><td>17.33</td><td>19.77</td>
+                    <td>14.21</td><td>14.42</td><td>14.31</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">UniVLA</th>
+                    <td>29.25</td><td>27.00</td><td>28.13</td>
+                    <td>12.21</td><td>13.38</td><td>12.79</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">villa-X</th>
+                    <td>24.13</td><td>26.04</td><td>25.09</td>
+                    <td>9.83</td><td>12.29</td><td>11.06</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">WLAM (ours)</th>
+                    <td><strong>49.38</strong></td><td><strong>47.38</strong></td><td><strong>48.38</strong></td>
+                    <td><strong>22.08</strong></td><td><strong>19.88</strong></td><td><strong>20.98</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </article>
 
           <article class="paper-subsection">
@@ -318,11 +463,5 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>WLA<sup>3</sup>: World Latent Action Modeling for Semantics, Dynamics, and Kinematics.</p>
-        <p>© <span data-year>2026</span> WLA<sup>3</sup> Team.</p>
-      </div>
-    </footer>
   </body>
 </html>
