@@ -131,11 +131,6 @@ sub {
   white-space: nowrap;
 }
 
-.site-nav a:last-child {
-  color: var(--chapter);
-  font-weight: 600;
-}
-
 .project-header {
   padding: 64px 0 54px;
   text-align: center;
